@@ -18,5 +18,15 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: slategray;
+}
+
+/* Player Card */
+.cardText{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.cardText, card-text{
+  margin: 10px;
 }

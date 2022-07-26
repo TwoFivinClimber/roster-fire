@@ -13,10 +13,13 @@ function PlayerCard({ obj, onUpdate }) {
     <Card>
       <Card.Header>Do I want this here ?</Card.Header>
       <Card.Body>
-        <Card.Title>{obj.name}</Card.Title>
-        <Card.Text>{obj.position}</Card.Text>
+        <div className="cardText">
+          <Card.Title>{obj.name}</Card.Title>
+          <Card.Text>{obj.position}</Card.Text>
+          <Card.Text>{obj.status}</Card.Text>
+        </div>
         <Link href={`/players/edit/${obj.firebaseKey}`} passHref>
-          <Button variant="outline-dark">Details</Button>
+          <Button variant="outline-dark">Edit</Button>
         </Link>
         <Button variant="outline-danger" onClick={deleteThisPLayer}>Delete</Button>
       </Card.Body>
