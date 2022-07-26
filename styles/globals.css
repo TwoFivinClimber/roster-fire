@@ -21,6 +21,15 @@ body {
   background-color: slategrey;
 }
 
+/*Search Bar*/
+.searchContainer{
+  justify-content: center;
+  margin: 10px;
+}
+.searchBar{
+  width: 25%;
+}
+
 /* Player Card */
 .cardText{
   display: flex;
