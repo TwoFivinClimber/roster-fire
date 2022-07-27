@@ -1,10 +1,10 @@
 import React from 'react';
-import PlayerForm from '../components/PlayerForm';
+import TeamForm from '../components/TeamForm';
 
-function addPlayer() {
+function addTeam() {
   return (
-    <PlayerForm />
+    <TeamForm />
   );
 }
 
-export default addPlayer;
+export default addTeam;
