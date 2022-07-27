@@ -17,10 +17,13 @@ function TeamCard({ obj, onUpdate }) {
         <Card.Text>{obj.location}</Card.Text>
         <Card.Text>{obj.manager}</Card.Text>
       </Card.Body>
+      <Link href={`/teams/${obj.firebaseKey}`} passHref>
+        <Button variant="dark">View</Button>
+      </Link>
       <Link href={`/teams/edit/${obj.firebaseKey}`} passHref>
         <Button variant="outline-dark">Edit</Button>
       </Link>
-      <Button variant="outline-danger" onClick={deleteThisTeam}>Delete</Button>
+      <Button variant="danger" onClick={deleteThisTeam}>Delete</Button>
     </Card>
   );
 }
