@@ -31,11 +31,22 @@ body {
 }
 
 /* Player Card */
-.cardText{
+.cardBody{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
-.cardText, card-text{
-  margin: 10px;
+
+.cardText{
+justify-content: space-between;
+margin-left: 20px;
+}
+
+.playerImg{
+  height: 120px;
+  width: 100px;
+}
+/*Team Card*/
+.teamImg{
+  height: 300px;
+  width: 100%;
 }

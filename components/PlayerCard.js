@@ -11,17 +11,22 @@ function PlayerCard({ obj, onUpdate }) {
 
   return (
     <Card>
-      <Card.Header>Do I want this here ?</Card.Header>
+      <Card.Header>obj.team</Card.Header>
       <Card.Body>
-        <div className="cardText">
-          <Card.Title>{obj.name}</Card.Title>
-          <Card.Text>{obj.position}</Card.Text>
-          <Card.Text>{obj.status}</Card.Text>
+        <div className="cardBody">
+          <Card.Img className="playerImg" variant="left" src={obj.imageUrl} />
+          <div className="cardText">
+            <Card.Title>{obj.name}</Card.Title>
+            <Card.Text>{obj.position}</Card.Text>
+            <Card.Text>{obj.status}</Card.Text>
+          </div>
+          <div>
+            <Link href={`/players/edit/${obj.firebaseKey}`} passHref>
+              <Button variant="outline-dark">Edit</Button>
+            </Link>
+            <Button variant="outline-danger" onClick={deleteThisPLayer}>Delete</Button>
+          </div>
         </div>
-        <Link href={`/players/edit/${obj.firebaseKey}`} passHref>
-          <Button variant="outline-dark">Edit</Button>
-        </Link>
-        <Button variant="outline-danger" onClick={deleteThisPLayer}>Delete</Button>
       </Card.Body>
     </Card>
   );
@@ -31,6 +36,7 @@ PlayerCard.propTypes = {
   obj: PropTypes.shape({
     firebaseKey: PropTypes.string,
     name: PropTypes.string,
+    imageUrl: PropTypes.string,
     position: PropTypes.string,
     status: PropTypes.string,
   }).isRequired,

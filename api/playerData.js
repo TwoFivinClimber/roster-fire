@@ -9,6 +9,12 @@ const getPlayers = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getTeamPlayers = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${fbUrl}/players.json?orderBy="teamId"&equalTo="${firebaseKey}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
 const getSinglePlayer = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${fbUrl}/players/${firebaseKey}.json`)
     .then((playerObj) => resolve(playerObj.data))
@@ -37,5 +43,5 @@ const deletePlayer = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  getPlayers, getSinglePlayer, createPlayer, updatePlayer, deletePlayer,
+  getPlayers, getSinglePlayer, createPlayer, updatePlayer, deletePlayer, getTeamPlayers,
 };

@@ -7,6 +7,7 @@ import { useAuth } from '../utils/context/authContext';
 
 const initialState = {
   name: '',
+  imageUrl: '',
   position: '',
   status: '',
 };
@@ -48,6 +49,8 @@ function PlayerForm({ obj }) {
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Player Name</Form.Label>
         <Form.Control name="name" type="text" placeholder="Enter Player Name" value={formInput.name} onChange={handleChange} />
+        <Form.Label>Image</Form.Label>
+        <Form.Control name="imageUrl" type="text" placeholder="Enter Image Url" value={formInput.imageUrl} onChange={handleChange} />
         <Form.Label>Position</Form.Label>
         <Form.Control name="position" type="text" placeholder="Enter Player Position" value={formInput.position} onChange={handleChange} />
         <Form.Label>Player Status</Form.Label>
@@ -66,6 +69,7 @@ function PlayerForm({ obj }) {
 PlayerForm.propTypes = {
   obj: PropTypes.shape({
     name: PropTypes.string,
+    imageUrl: PropTypes.string,
     position: PropTypes.string,
     status: PropTypes.string,
     firebaseKey: PropTypes.string,

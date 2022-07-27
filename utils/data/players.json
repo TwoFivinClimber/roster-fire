@@ -1,26 +1,26 @@
 {
-  "-smaple1234" : {
+  "-sample1234" : {
     "name" : "Player One",
     "firebaseKey" : "-sample1234",
     "position" : "Center Forward",
     "status" : "active",
     "uid": ""
   },
-  "-smaple5678" : {
+  "-sample5678" : {
     "name" : "Player Two",
     "firebaseKey" : "-sample5678",
     "position" : "Back",
     "status" : "injured",
     "uid": ""
-  },
-  "-smaple9111" : {
+  }, 
+  "-sample9111" : {
     "name" : "Player Three",
     "firebaseKey" : "-sample9111",
     "position" : "Wing",
     "status" : "active",
     "uid": ""
   },
-  "-smaple12134" : {
+  "-sample12134" : {
     "name" : "Player Four",
     "firebaseKey" : "-sample1213",
     "position" : "Snake",

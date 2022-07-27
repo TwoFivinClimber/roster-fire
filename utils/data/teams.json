@@ -1,0 +1,16 @@
+{
+  "-team1234" : {
+    "name" : "Music City Markers",
+    "firebaseKey" : "-team1234",
+    "location" : "Nashville, TN",
+    "isPublic" : true,
+    "uid": "G6uGCZ6jV4dIZliczdT8XHygphQ2"
+  },
+  "-team5678" : {
+    "name" : "Miami Heat",
+    "firebaseKey" : "-team5678",
+    "location" : "Miami, FL",
+    "isPublic" : true,
+    "uid": "G6uGCZ6jV4dIZliczdT8XHygphQ2"
+  }
+}
