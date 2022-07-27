@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
@@ -18,7 +19,7 @@ function TeamForm({ obj }) {
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
-  }, [obj, user]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +45,7 @@ function TeamForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>{obj.firebaseKey ? 'Update' : 'Add'} Team</h2>
+      <h2>{obj.firebaseKey ? 'Update' : 'Add A'} Team</h2>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Team Name</Form.Label>
         <Form.Control name="name" type="text" placeholder="Enter Team Name" value={formInput.name} onChange={handleChange} />

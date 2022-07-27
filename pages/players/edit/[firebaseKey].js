@@ -4,15 +4,15 @@ import { getSinglePlayer } from '../../../api/playerData';
 import PlayerForm from '../../../components/PlayerForm';
 
 function EditPlayer() {
-  const [item, setItem] = useState({});
+  const [player, setPlayer] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    getSinglePlayer(firebaseKey).then(setItem);
+    getSinglePlayer(firebaseKey).then(setPlayer);
   }, [firebaseKey]);
 
-  return (<PlayerForm obj={item} />);
+  return (<PlayerForm obj={player} />);
 }
 
 export default EditPlayer;

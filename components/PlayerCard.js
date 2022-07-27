@@ -17,6 +17,7 @@ function PlayerCard({ obj, onUpdate }) {
           <Card.Img className="playerImg" variant="left" src={obj.imageUrl} />
           <div className="cardText">
             <Card.Title>{obj.name}</Card.Title>
+            <Card.Text>{obj.team}</Card.Text>
             <Card.Text>{obj.position}</Card.Text>
             <Card.Text>{obj.status}</Card.Text>
           </div>
@@ -39,6 +40,7 @@ PlayerCard.propTypes = {
     imageUrl: PropTypes.string,
     position: PropTypes.string,
     status: PropTypes.string,
+    team: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
