@@ -2,11 +2,15 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { deleteTeam } from '../api/teamData';
+import { useRouter } from 'next/router';
+import { dissolveTeam } from '../api/mergedData';
 
-function TeamCard({ obj, onUpdate }) {
+function TeamCard({ obj }) {
+  const router = useRouter();
   const deleteThisTeam = () => {
-    deleteTeam(obj.firebaseKey).then(() => onUpdate());
+    if (window.confirm('Delete This Team?  All Players Will Become Free Agents')) {
+      dissolveTeam(obj.firebaseKey).then(() => router.push('/teams'));
+    }
   };
 
   return (
@@ -36,7 +40,6 @@ TeamCard.propTypes = {
     location: PropTypes.string,
     manager: PropTypes.string,
   }).isRequired,
-  onUpdate: PropTypes.func.isRequired,
 };
 
 export default TeamCard;

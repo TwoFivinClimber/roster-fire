@@ -24,24 +24,21 @@ function PlayerForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
-  }, []);
-
-  useEffect(() => {
     getTeams(user.uid).then(setTeams);
-  }, []);
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'team') {
       for (const option of e.target.children) {
         if (option.value === value) {
-          const teamId = 'teamId';
+          const teamid = 'teamId';
           const teamFbKey = option.getAttribute('teamId');
           setFormInput((prevState) => ({
             ...prevState,
             [name]: value,
-            [teamId]: teamFbKey,
+            [teamid]: teamFbKey,
           }));
         }
       }
@@ -77,7 +74,6 @@ function PlayerForm({ obj }) {
         <Form.Select
           aria-label="Default select example"
           name="team"
-          teamid="teamId"
           onChange={handleChange}
         >
           <option>Select A Team</option>
@@ -95,7 +91,7 @@ function PlayerForm({ obj }) {
       <Button variant="primary" type="submit">
         {obj.firebaseKey ? 'Update' : 'Submit'}
       </Button>
-      <Button variant="success" type="submit" onClick={() => router.push('/team')}>
+      <Button variant="success" type="submit" onClick={() => router.push('/players')}>
         Cancel
       </Button>
     </Form>

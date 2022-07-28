@@ -1,5 +1,5 @@
-import { getTeamPlayers } from './playerData';
-import { getSingleTeam } from './teamData';
+import { getTeamPlayers, updatePlayer } from './playerData';
+import { deleteTeam, getSingleTeam } from './teamData';
 
 const getFullTeam = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleTeam(firebaseKey).then((teamObj) => {
@@ -9,4 +9,14 @@ const getFullTeam = (firebaseKey) => new Promise((resolve, reject) => {
   }).catch(reject);
 });
 
-export default getFullTeam;
+const dissolveTeam = (teamFbKey) => new Promise((resolve, reject) => {
+  getTeamPlayers(teamFbKey).then((playersArr) => {
+    const update = { team: '', teamId: '' };
+    const updateTeamPlayers = playersArr.map((player) => updatePlayer({ ...player, ...update }));
+    Promise.all(updateTeamPlayers).then(() => {
+      resolve(deleteTeam(teamFbKey));
+    });
+  }).catch(reject);
+});
+
+export { getFullTeam, dissolveTeam };
