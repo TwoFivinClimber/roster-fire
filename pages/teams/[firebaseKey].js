@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import getFullTeam from '../../api/mergedData';
+import { getFullTeam } from '../../api/mergedData';
 import TeamCard from '../../components/TeamCard';
 import PlayerCard from '../../components/PlayerCard';
 

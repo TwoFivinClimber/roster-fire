@@ -19,7 +19,7 @@ function TeamForm({ obj }) {
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
-  }, []);
+  }, [user, obj]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

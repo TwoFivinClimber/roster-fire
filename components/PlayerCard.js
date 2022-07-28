@@ -6,7 +6,9 @@ import { deletePlayer } from '../api/playerData';
 
 function PlayerCard({ obj, onUpdate }) {
   const deleteThisPLayer = () => {
-    deletePlayer(obj.firebaseKey).then(() => onUpdate());
+    if (window.confirm('Delete This Player?')) {
+      deletePlayer(obj.firebaseKey).then(() => onUpdate());
+    }
   };
 
   return (
@@ -17,7 +19,7 @@ function PlayerCard({ obj, onUpdate }) {
           <Card.Img className="playerImg" variant="left" src={obj.imageUrl} />
           <div className="cardText">
             <Card.Title>{obj.name}</Card.Title>
-            <Card.Text>{obj.team}</Card.Text>
+            <Card.Text>{obj.team || 'Free Agent'}</Card.Text>
             <Card.Text>{obj.position}</Card.Text>
             <Card.Text>{obj.status}</Card.Text>
           </div>
