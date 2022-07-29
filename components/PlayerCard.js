@@ -3,8 +3,10 @@ import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { deletePlayer } from '../api/playerData';
+import { useAuth } from '../utils/context/authContext';
 
 function PlayerCard({ obj, onUpdate }) {
+  const { user } = useAuth();
   const deleteThisPLayer = () => {
     if (window.confirm('Delete This Player?')) {
       deletePlayer(obj.firebaseKey).then(() => onUpdate());
@@ -25,9 +27,9 @@ function PlayerCard({ obj, onUpdate }) {
           </div>
           <div>
             <Link href={`/players/edit/${obj.firebaseKey}`} passHref>
-              <Button variant="outline-dark">Edit</Button>
+              <Button className={obj.uid !== user.uid ? 'noShow' : ''} variant="outline-dark">Edit</Button>
             </Link>
-            <Button variant="outline-danger" onClick={deleteThisPLayer}>Delete</Button>
+            <Button className={obj.uid !== user.uid ? 'noShow' : ''} variant="outline-danger" onClick={deleteThisPLayer}>Delete</Button>
           </div>
         </div>
       </Card.Body>
@@ -43,6 +45,7 @@ PlayerCard.propTypes = {
     position: PropTypes.string,
     status: PropTypes.string,
     team: PropTypes.string,
+    uid: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
