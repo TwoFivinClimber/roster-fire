@@ -4,9 +4,11 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { dissolveTeam } from '../api/mergedData';
+import { useAuth } from '../utils/context/authContext';
 
 function TeamCard({ obj }) {
   const router = useRouter();
+  const { user } = useAuth();
   const deleteThisTeam = () => {
     if (window.confirm('Delete This Team?  All Players Will Become Free Agents')) {
       dissolveTeam(obj.firebaseKey).then(() => router.push('/teams'));
@@ -25,9 +27,9 @@ function TeamCard({ obj }) {
         <Button variant="dark">View</Button>
       </Link>
       <Link href={`/teams/edit/${obj.firebaseKey}`} passHref>
-        <Button variant="outline-dark">Edit</Button>
+        <Button className={obj.uid !== user.uid ? 'noShow' : ''} variant="outline-dark">Edit</Button>
       </Link>
-      <Button variant="danger" onClick={deleteThisTeam}>Delete</Button>
+      <Button className={obj.uid !== user.uid ? 'noShow' : ''} variant="danger" onClick={deleteThisTeam}>Delete</Button>
     </Card>
   );
 }
@@ -39,6 +41,7 @@ TeamCard.propTypes = {
     imageUrl: PropTypes.string,
     location: PropTypes.string,
     manager: PropTypes.string,
+    uid: PropTypes.string,
   }).isRequired,
 };
 

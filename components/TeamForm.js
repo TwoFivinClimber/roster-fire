@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { createTeam, updateTeam } from '../api/teamData';
+import { createTeam } from '../api/teamData';
 import { useAuth } from '../utils/context/authContext';
+import { updateTeamAndPlayers } from '../api/mergedData';
 
 const initialState = {
   name: '',
   location: '',
+  manager: '',
   isPublic: false,
 };
 
@@ -32,7 +34,7 @@ function TeamForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateTeam(formInput).then(() => {
+      updateTeamAndPlayers(formInput).then(() => {
         router.push('/teams');
       });
     } else {
@@ -71,7 +73,7 @@ function TeamForm({ obj }) {
       <Button variant="primary" type="submit">
         {obj.firebaseKey ? 'Update' : 'Submit'}
       </Button>
-      <Button variant="success" type="submit" onClick={() => router.push('/team')}>
+      <Button variant="success" type="submit" onClick={() => router.push('/teams')}>
         Cancel
       </Button>
     </Form>
