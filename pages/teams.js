@@ -14,7 +14,7 @@ function Teams() {
 
   useEffect(() => {
     getTheTeams();
-  }, []);
+  }, [teams]);
 
   return (
     <div>
