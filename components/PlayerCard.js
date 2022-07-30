@@ -15,15 +15,15 @@ function PlayerCard({ obj, onUpdate }) {
 
   return (
     <Card>
-      <Card.Header>obj.team</Card.Header>
+      <Card.Header>{obj.team}</Card.Header>
       <Card.Body>
         <div className="cardBody">
           <Card.Img className="playerImg" variant="left" src={obj.imageUrl} />
           <div className="cardText">
-            <Card.Title>{obj.name}</Card.Title>
-            <Card.Text>{obj.team || 'Free Agent'}</Card.Text>
-            <Card.Text>{obj.position}</Card.Text>
-            <Card.Text>{obj.status}</Card.Text>
+            <Card.Title>Name: {obj.name}</Card.Title>
+            <Card.Text>Team: {obj.team || 'Free Agent'}</Card.Text>
+            <Card.Text>Position: {obj.position}</Card.Text>
+            <Card.Text>Status: {obj.status}</Card.Text>
           </div>
           <div>
             <Link href={`/players/edit/${obj.firebaseKey}`} passHref>

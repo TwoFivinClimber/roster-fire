@@ -10,7 +10,7 @@ function TradeTeamCard({ obj }) {
       <Card.Body>
         <Card.Title>{obj.name}</Card.Title>
         <Card.Text>{obj.location}</Card.Text>
-        <Card.Text>{obj.manager}</Card.Text>
+        <Card.Text>Manager: {obj.manager}</Card.Text>
       </Card.Body>
       <Link href={`/trades/${obj.firebaseKey}`} passHref>
         <Button variant="dark">View</Button>
