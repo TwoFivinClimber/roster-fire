@@ -14,4 +14,7 @@
 - If another team is public, you can ask to acquire that team while trading for one of your own teams
 - If the other user accepts the trade, the teams will be switched and you will have control of the acquired team.
 
+## Checkout my demo on netlify!!
+https://www.loom.com/share/e559a485219240f7bbc48c12cb3c2b0e
+
 ### Happy Team Building !
