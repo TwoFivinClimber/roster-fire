@@ -53,6 +53,7 @@ function Trades() {
   return (
     <div>
       <h1>Team Owner {trade.requestorDisplayName} Would like to Trade:</h1>
+      <h4 className={trade.requestorUid === user.uid ? 'noShow' : ''}>Message From Owner: {trade.tradeMessage}</h4>
       <TradeTeamCard obj={requestorTeam} />
       <h1>For</h1>
       <TradeTeamCard obj={requestedTeam} />
