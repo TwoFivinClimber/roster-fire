@@ -1,0 +1,13 @@
+{
+  "-sampleTrade1234":{
+    "firebaseKey": "-sampleTrade1234",
+    "tradeStatus": "active",
+    "requestorUid": "G6uGCZ6jV4dIZliczdT8XHygphQ2",
+    "requestorDisplayName": "Brett Hughes",
+    "requestorTeamId": "-N7zgZpjv_pjUTQjKwbD",
+    "requestedUid": "hjzMgBpQMGd6l8C4yFg1lDnTmlC2",
+    "requestedTeamId": "-N86xOSqdVYUoAd1Gm_8",
+    "tradeMessage": "This is a message about the trade.  PLease accept the trade deal",
+    "responseMessage": ""
+  }
+}

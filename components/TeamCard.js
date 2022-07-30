@@ -30,6 +30,9 @@ function TeamCard({ obj }) {
         <Button className={obj.uid !== user.uid ? 'noShow' : ''} variant="outline-dark">Edit</Button>
       </Link>
       <Button className={obj.uid !== user.uid ? 'noShow' : ''} variant="danger" onClick={deleteThisTeam}>Delete</Button>
+      <Link href={`/trades/request/${obj.firebaseKey}`} passHref>
+        <Button className={obj.uid === user.uid ? 'noShow' : ''} variant="warning">Request Trade</Button>
+      </Link>
     </Card>
   );
 }

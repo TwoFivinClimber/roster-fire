@@ -78,7 +78,7 @@ function PlayerForm({ obj }) {
         >
           <option>Select A Team</option>
           {teams.map((team) => (
-            <option value={team.name} teamId={team.firebaseKey} key={team.firebaseKey} selected={obj.teamId === team.firebaseKey}>{team.name}</option>
+            <option value={team.name} teamid={team.firebaseKey} key={team.firebaseKey} selected={obj.teamId === team.firebaseKey}>{team.name}</option>
           ))};
         </Form.Select>
         <Form.Label>Image</Form.Label>
