@@ -8,17 +8,17 @@ import { useAuth } from '../utils/context/authContext';
 import { getTeams } from '../api/teamData';
 import { createTrade } from '../api/tradeData';
 
-// const initialState = {
-//   tradeStatus: 'open',
-//   requestorUid: '',
-//   requestorDisplayName: '',
-//   requestorTeamId: '',
-//   requestedUid: '',
-//   requestedDisplayName: '',
-//   requestedTeamId: '',
-//   tradeMessage: '',
-//   responseMessage: '',
-// };
+const initialState = {
+  tradeStatus: 'open',
+  requestorUid: '',
+  requestorDisplayName: '',
+  requestorTeamId: '',
+  requestedUid: '',
+  requestedDisplayName: '',
+  requestedTeamId: '',
+  tradeMessage: '',
+  responseMessage: '',
+};
 
 function TradeForm({ obj }) {
   const [formInput, setFormInput] = useState({});
@@ -47,7 +47,6 @@ function TradeForm({ obj }) {
       ...prevState,
       [name]: value,
     }));
-    console.warn(formInput);
   };
 
   const handleSubmit = (e) => {
@@ -66,6 +65,7 @@ function TradeForm({ obj }) {
           aria-label="Default select example"
           name="requestorTeamId"
           onChange={handleChange}
+          required
         >
           <option>Select A Team</option>
           {teams.map((team) => (
@@ -99,7 +99,7 @@ TradeForm.propTypes = {
 };
 
 TradeForm.defaultProps = {
-  obj: {},
+  obj: { initialState },
 };
 
 export default TradeForm;

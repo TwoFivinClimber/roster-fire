@@ -23,5 +23,11 @@ const createTrade = (obj) => new Promise((resolve, reject) => {
     }).catch(reject);
 });
 
+const deleteTrade = (obj) => new Promise((resolve, reject) => {
+  axios.delete(`${fbUrl}/trades/${obj.firebaseKey}.json`)
+    .then(resolve)
+    .catch(reject);
+});
+
 // eslint-disable-next-line import/prefer-default-export
-export { getTrades, createTrade };
+export { getTrades, createTrade, deleteTrade };

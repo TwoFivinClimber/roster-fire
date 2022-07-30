@@ -69,12 +69,13 @@ function PlayerForm({ obj }) {
       <h2>{obj.firebaseKey ? 'Update' : 'Add A'} Player</h2>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Player Name</Form.Label>
-        <Form.Control name="name" type="text" placeholder="Enter Player Name" value={formInput.name} onChange={handleChange} />
+        <Form.Control name="name" type="text" placeholder="Enter Player Name" value={formInput.name} onChange={handleChange} required />
         <Form.Label>Team</Form.Label>
         <Form.Select
           aria-label="Default select example"
           name="team"
           onChange={handleChange}
+          required
         >
           <option>Select A Team</option>
           {teams.map((team) => (
@@ -82,11 +83,11 @@ function PlayerForm({ obj }) {
           ))};
         </Form.Select>
         <Form.Label>Image</Form.Label>
-        <Form.Control name="imageUrl" type="text" placeholder="Enter Image Url" value={formInput.imageUrl} onChange={handleChange} />
+        <Form.Control name="imageUrl" type="text" placeholder="Enter Image Url" value={formInput.imageUrl} onChange={handleChange} required />
         <Form.Label>Position</Form.Label>
-        <Form.Control name="position" type="text" placeholder="Enter Player Position" value={formInput.position} onChange={handleChange} />
+        <Form.Control name="position" type="text" placeholder="Enter Player Position" value={formInput.position} onChange={handleChange} required />
         <Form.Label>Player Status</Form.Label>
-        <Form.Control name="status" type="text" placeholder="Active, Injured, On Leave ?" value={formInput.status} onChange={handleChange} />
+        <Form.Control name="status" type="text" placeholder="Active, Injured, On Leave ?" value={formInput.status} onChange={handleChange} required />
       </Form.Group>
       <Button variant="primary" type="submit">
         {obj.firebaseKey ? 'Update' : 'Submit'}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
@@ -15,7 +16,7 @@ export default function NavBar() {
       const userTrades = tradesArray.filter((tradeTaco) => tradeTaco.requestedUid === user.uid || tradeTaco.requestorUid === user.uid);
       setTrades(userTrades);
     });
-  }, [trades, user]);
+  }, [trades]);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>

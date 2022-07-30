@@ -32,7 +32,7 @@ const createTeam = (update) => new Promise((resolve, reject) => {
 
 const updateTeam = (teamData) => new Promise((resolve, reject) => {
   axios.patch(`${fbUrl}/teams/${teamData.firebaseKey}.json`, teamData)
-    .then((response) => resolve(response))
+    .then((response) => resolve(response.data))
     .catch(reject);
 });
 

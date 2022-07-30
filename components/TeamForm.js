@@ -11,7 +11,9 @@ const initialState = {
   name: '',
   location: '',
   manager: '',
+  teamImage: '',
   isPublic: false,
+  displayName: '',
 };
 
 function TeamForm({ obj }) {
@@ -50,13 +52,13 @@ function TeamForm({ obj }) {
       <h2>{obj.firebaseKey ? 'Update' : 'Add A'} Team</h2>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Team Name</Form.Label>
-        <Form.Control name="name" type="text" placeholder="Enter Team Name" value={formInput.name} onChange={handleChange} />
+        <Form.Control name="name" type="text" placeholder="Enter Team Name" value={formInput.name} onChange={handleChange} required />
         <Form.Label>Location</Form.Label>
-        <Form.Control name="location" type="text" placeholder="Enter Team Location" value={formInput.location} onChange={handleChange} />
+        <Form.Control name="location" type="text" placeholder="Enter Team Location" value={formInput.location} onChange={handleChange} required />
         <Form.Label>Team Image</Form.Label>
-        <Form.Control name="imageUrl" type="text" placeholder="Enter Team Image" value={formInput.imageUrl} onChange={handleChange} />
+        <Form.Control name="imageUrl" type="text" placeholder="Enter Team Image" value={formInput.imageUrl} onChange={handleChange} required />
         <Form.Label>Manager</Form.Label>
-        <Form.Control name="manager" type="text" placeholder="Enter Team Manager" value={formInput.manager} onChange={handleChange} />
+        <Form.Control name="manager" type="text" placeholder="Enter Team Manager" value={formInput.manager} onChange={handleChange} required />
         <Form.Check
           className="text-white mb-3"
           type="switch"
@@ -87,6 +89,8 @@ TeamForm.propTypes = {
     firebaseKey: PropTypes.string,
     isPublic: PropTypes.bool,
     uid: PropTypes.string,
+    manager: PropTypes.string,
+    displayName: PropTypes.string,
   }),
 };
 
