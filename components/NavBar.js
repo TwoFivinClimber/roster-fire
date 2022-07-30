@@ -1,12 +1,22 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+import { getTrades } from '../api/tradeData';
+import { useAuth } from '../utils/context/authContext';
 
 export default function NavBar() {
+  const [trades, setTrades] = useState([]);
+  const { user } = useAuth();
+  useEffect(() => {
+    getTrades().then((tradesArray) => {
+      const userTrades = tradesArray.filter((tradeTaco) => tradeTaco.requestedUid === user.uid || tradeTaco.requestorUid === user.uid);
+      setTrades(userTrades);
+    });
+  }, [trades]);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -33,6 +43,9 @@ export default function NavBar() {
             </Link>
             <Link passHref href="/public">
               <Nav.Link>Public League</Nav.Link>
+            </Link>
+            <Link passHref href="/trades">
+              <Nav.Link className={trades.length ? '' : 'noShow'}>Trades</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>

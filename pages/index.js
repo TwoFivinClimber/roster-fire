@@ -4,8 +4,8 @@ function Home() {
   const { user } = useAuth();
   return (
     <div>
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
+      <h3>Hello {user.displayName}! </h3>
+      <h1>Welcome To ROSTER FIRE!</h1>
     </div>
   );
 }
